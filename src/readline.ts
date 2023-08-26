@@ -6,6 +6,7 @@ const rl = createInterface({
 });
 
 rl.question('What is your name? ', (name) => {
-  console.log(`Hello ${name}!`);
+  const result = name + 1000;
+  console.log(`Hello ${result}!`);
   rl.close();
 });
