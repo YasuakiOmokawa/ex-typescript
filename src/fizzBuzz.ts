@@ -1,19 +1,15 @@
-let result: string = '';
+const results: string[] = [];
 
 for (let i = 1; i <= 100; i++) {
   if (i % 15 === 0) {
-    result += 'FizzBuzz ';
-    console.log('FizzBuzz');
+    results.push('FizzBuzz');
   } else if (i % 3 === 0 && i % 5 !== 0) {
-    result += 'Fizz ';
-    console.log('Fizz');
+    results.push('Fizz');
   } else if (i % 5 === 0 && i % 3 !== 0) {
-    result += 'Buzz ';
-    console.log('Buzz');
+    results.push('Buzz');
   } else {
-    result += `${i} `;
-    console.log(i);
+    results.push(i.toString());
   }
 }
 
-console.log(result);
+console.log(results.join(' '));
