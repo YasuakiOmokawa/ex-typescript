@@ -1,9 +1,11 @@
-const predicts: {
+type PredictObj = {
   foo: number;
   bar: string;
-} = {
-  foo: "123",
+};
+
+const predicts: PredictObj = {
+  foo: 123,
   bar: 'hello, world',
 };
 
-
+console.log(predicts);
