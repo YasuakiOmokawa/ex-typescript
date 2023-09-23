@@ -8,4 +8,5 @@ const u = obj_literal as User;
 
 console.log(u);
 
-console.log(u.telNumber);
+// console.log(u.telNumber); // => undefined
+
