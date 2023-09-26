@@ -7,6 +7,8 @@ numbers['1'] = 10;
 console.log(numbers["1"]);
 
 const onlyNumbers: number[] = [1, 2, 3];
-const stringsOrNumbers: (string | number)[] = [1, 2, 3, '4'];
-const nullableNumbers: (number | null)[] = [1, 2, null];
 
+onlyNumbers.push(4);
+console.log(onlyNumbers.includes(1)); // true
+console.log(onlyNumbers.includes(0)); // false
+ 
