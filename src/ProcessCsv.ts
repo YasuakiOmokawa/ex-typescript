@@ -14,11 +14,11 @@ const processUsers: ProcessUser[] = csvData
   .trim()
   .split("\n")
   .map((line) => {
-    const user: string[] = line.split(",");
+    const [name, ageString, premiumUserString] = line.split(",");
     return {
-      name: user[0],
-      age: Number(user[1]),
-      premiumUser: Boolean(Number(user[2])),
+      name: name,
+      age: Number(ageString),
+      premiumUser: premiumUserString === "1",
     };
   });
 
