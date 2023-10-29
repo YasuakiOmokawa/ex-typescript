@@ -1,4 +1,4 @@
-for (let step = 1; step <= 100; step++) {
+for (const step of sequence(1, 100)) {
   const message = getFizzBuzzString(step);
   console.log(message);
 }
@@ -13,4 +13,8 @@ function getFizzBuzzString(i: number): string {
   } else {
     return i.toString();
   }
+}
+
+function sequence(start: number, end: number): number[] {
+  return Array.from({ length: end - start + 1 }, (_, i) => i + start);
 }
