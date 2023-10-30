@@ -1,7 +1,7 @@
 function customMap<T, Y>(array: T[], callback: (element: T) => Y): Y[] {
-  const result = [];
-  for (let i = 0; i < array.length; i++) {
-    result.push(callback(array[i]));
+  const result: Y[] = [];
+  for (const element of array) {
+    result.push(callback(element));
   }
   return result;
 }
