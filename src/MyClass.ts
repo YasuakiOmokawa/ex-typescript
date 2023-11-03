@@ -30,3 +30,14 @@ const Bob = new MyUser("Bob", 52, 90);
 console.log(Bob.id); // 90
 Bob.name = "Bob2";
 console.log(Bob.name); // Bob2
+
+type HogeUrl = {
+  url: URL;
+};
+
+const hogeUrl: HogeUrl = {
+  url: new URL("detarame://hoge.com/"),
+};
+
+const { url } = hogeUrl;
+console.log(url.href);
