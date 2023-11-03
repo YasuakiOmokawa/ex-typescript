@@ -1,4 +1,6 @@
 class MyUser {
+  static adminName: string = "admin";
+
   name: string;
   age: number;
   readonly id?: number;
@@ -41,3 +43,4 @@ const hogeUrl: HogeUrl = {
 
 const { url } = hogeUrl;
 console.log(url.href);
+console.log(MyUser.adminName); // admin
