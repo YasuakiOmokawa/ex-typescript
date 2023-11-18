@@ -9,10 +9,8 @@ class HandlingUser {
 }
 
 function getPrice(customer: HasAgeCustomer) {
-  if (customer instanceof HandlingUser) {
-    if (customer.name === "uhyo") {
-      return 0;
-    }
+  if (customer instanceof HandlingUser && customer.name === "uhyo") {
+    return 0;
   }
   return customer.age < 18 ? 1000 : 1800;
 }
