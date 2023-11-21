@@ -10,7 +10,18 @@ class LuxuriousUser extends NormalUser {
   rank: number = 1;
 }
 
-const hoii = new LuxuriousUser("uhyo", 32);
+const hoii = new LuxuriousUser("uhyo", 10);
 console.log(hoii.rank); // 1
 console.log(hoii.name); // uhyo
-console.log(hoii.isAdult()); // true
+console.log(hoii.isAdult()); // false
+
+class LuxuriousUser2 extends NormalUser {
+  rank: number = 1;
+
+  public isAdult(): boolean {
+    return true;
+  }
+}
+
+const hoii2 = new LuxuriousUser2("uhyo", 10);
+console.log(hoii2.isAdult()); // true
