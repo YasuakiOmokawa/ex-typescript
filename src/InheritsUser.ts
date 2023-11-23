@@ -18,7 +18,7 @@ console.log(hoii.isAdult()); // false
 class LuxuriousUser2 extends NormalUser {
   rank: number = 1;
 
-  public isAdult(): boolean {
+  public override isAdult(): boolean {
     return true;
   }
 }
