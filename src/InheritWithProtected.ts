@@ -9,5 +9,5 @@ class NormalizeUser {
 class LuxuriouslyUser extends NormalizeUser {
   public override isAdult(): boolean {
     return this.age >= 0;
+  }
 }
-

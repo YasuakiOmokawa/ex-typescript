@@ -13,3 +13,8 @@ class ThisIsUser implements ThisHasName {
     return this.#age >= 20;
   }
 }
+
+const uhyoSan = new ThisIsUser("uhyo", 30);
+const jogn = new ThisIsUser("John", 10);
+
+console.log(uhyoSan.isAdult === jogn.isAdult); // true
