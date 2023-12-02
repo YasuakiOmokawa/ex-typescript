@@ -7,9 +7,7 @@ const baseObject2: BaseObject = { foo: 123 };
 console.log(baseObject1.foo); // undefined
 console.log(baseObject2.foo); // 123
 
-const { foo = 100 } = baseObject1;
 console.log(foo); // 100
-const { foo: foo2 = 200 } = baseObject2;
 console.log(foo2); // 123
 
 const destructObj = { foo: null };
