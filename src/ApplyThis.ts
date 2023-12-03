@@ -13,12 +13,16 @@ console.log(applyUhyo.isAdult()); // true
 console.log(applyUhyo.isAdult.apply(applyJohn, [])); // false
 
 class Athis {
-  foo = 123;
-  bar = this.foo + 100;
-  getFoo() {
-    return this.foo;
+  static foo = 123;
+  static bar = this.foo * 2;
+  static {
+    console.log("bar is", this.bar); // bar is 246
+  }
+
+  constructor() {
+    console.log("foo is", Athis.foo); // foo is 123
   }
 }
 
 const aThis = new Athis();
-console.log(aThis.bar, aThis.getFoo()); // 223 123
+// console.log();
