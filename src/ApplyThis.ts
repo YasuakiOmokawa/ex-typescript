@@ -24,5 +24,5 @@ class Athis {
   }
 }
 
-const aThis = new Athis();
+// const aThis = new Athis();
 // console.log();
