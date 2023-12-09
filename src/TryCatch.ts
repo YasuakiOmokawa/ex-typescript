@@ -1,15 +1,12 @@
 try {
-  console.log("エラーを発生させます");
-  throwError2();
-  console.log("エラーを発生させました");
+  throwError3();
+  console.log("これは表示されない");
 } catch (err) {
-  console.log("エラーをキャッチしました");
   console.log(err);
 }
-console.log("おわり");
 
-function throwError2() {
-  throw new Error("エラーが発生しました!!!!");
+function throwError3() {
+  const error = new Error("エラーが発生しました");
+  throw error;
+  console.log("これは表示されない");
 }
-
-//  エラーを発生させます > エラーをキャッチしました > Error: エラーが発生しました!!!!
