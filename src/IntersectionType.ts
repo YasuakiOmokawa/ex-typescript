@@ -14,3 +14,5 @@ const intersectionOmo: IntersectionHuman = {
   species: "ホモサピエンス",
   age: 38,
 };
+
+type IntersectionPrimitive = IntersectionAnimal & string;
