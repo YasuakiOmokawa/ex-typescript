@@ -10,4 +10,5 @@ const omoIsOptionalHuman: UnionOptionalHuman = {
 
 const dadIsOptionalHuman: UnionOptionalHuman = {
   name: "tama",
+  age: undefined,
 };
