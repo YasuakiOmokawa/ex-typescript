@@ -16,3 +16,4 @@ function getMessage(user: ReplaceUser, message: string): string {
 
 const omo = createUser("omo", 20);
 console.log(getMessage(omo, "こんにちは"));
+console.log(getMessage(omo, "こんにちは2"));
