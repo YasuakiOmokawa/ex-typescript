@@ -10,3 +10,11 @@ function getHelloTemplateString(): `Hello, ${string}!` {
 }
 
 console.log(getHelloTemplateString());
+
+function makeLiteralKey<T extends string>(userName: T) {
+  return `user:${userName}` as const;
+}
+
+const omokawaLiteralKey: "user:omokawa" = makeLiteralKey("omokawa");
+
+console.log(omokawaLiteralKey);
