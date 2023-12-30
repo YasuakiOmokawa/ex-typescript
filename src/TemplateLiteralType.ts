@@ -16,5 +16,11 @@ function makeLiteralKey<T extends string>(userName: T) {
 }
 
 const omokawaLiteralKey: "user:omokawa" = makeLiteralKey("omokawa");
-
 console.log(omokawaLiteralKey);
+
+function fromKey<T extends string>(key: `user:${T}`): T {
+  return key.slice(5) as T;
+}
+
+const userKeyLiteral = fromKey("user:omokawa");
+console.log(userKeyLiteral);
