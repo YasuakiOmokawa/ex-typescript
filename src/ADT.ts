@@ -16,3 +16,13 @@ const adtOmosan: ADTUser = {
   tag: "human",
   name: "omosan",
 };
+
+function getADTName(user: ADTUser) {
+  if (user.tag === "human") {
+    return user.name;
+  } else {
+    return "名無し";
+  }
+}
+console.log(getADTName(adtTama)); // 名無し
+console.log(getADTName(adtOmosan)); // omosan
