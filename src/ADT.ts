@@ -7,3 +7,12 @@ type ADTHuman = {
   name: string;
 };
 type ADTUser = ADTAnimal | ADTHuman;
+
+const adtTama: ADTUser = {
+  tag: "animal",
+  species: "cat",
+};
+const adtOmosan: ADTUser = {
+  tag: "human",
+  name: "omosan",
+};
