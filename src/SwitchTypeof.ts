@@ -6,8 +6,12 @@ type SwitchHuman = {
   tag: "human";
   name: string;
 };
+type SwitchRobot = {
+  tag: "robot";
+  name: string;
+};
 
-type SwitchUser = SwitchAnimal | SwitchHuman;
+type SwitchUser = SwitchAnimal | SwitchHuman | SwitchRobot;
 
 function getSwitchUserName(user: SwitchUser): string {
   switch (user.tag) {
@@ -15,7 +19,11 @@ function getSwitchUserName(user: SwitchUser): string {
       return user.name;
     case "animal":
       return "名無し";
+    case "robot":
+      return `CPU ${user.name}`;
   }
 }
 
-console.log(getSwitchUserName({ tag: "animal", species: "cat" })); // 名無し
+console.log(getSwitchUserName({ tag: "animal", species: "cat" }));
+console.log(getSwitchUserName({ tag: "human", name: "omo" }));
+console.log(getSwitchUserName({ tag: "robot", name: "tama" }));
