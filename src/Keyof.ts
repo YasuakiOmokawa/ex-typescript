@@ -1,7 +1,7 @@
 type LookofHuman = {
   type: "human";
   name: string;
-  age: number;
+  age: bigint;
 };
 
 function setLookofAge(human: LookofHuman, age: LookofHuman["age"]) {
@@ -11,8 +11,8 @@ function setLookofAge(human: LookofHuman, age: LookofHuman["age"]) {
 const lookofOmo: LookofHuman = {
   type: "human",
   name: "omo",
-  age: 38,
+  age: 38n,
 };
 
-const lookofOmo2 = setLookofAge(lookofOmo, 39);
+const lookofOmo2 = setLookofAge(lookofOmo, 39n);
 console.log(lookofOmo2);
