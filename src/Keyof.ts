@@ -16,3 +16,8 @@ const lookofOmo: LookofHuman = {
 
 const lookofOmo2 = setLookofAge(lookofOmo, 39n);
 console.log(lookofOmo2);
+
+type LookofHumanKeys = keyof LookofHuman;
+
+let key: LookofHumanKeys = "type";
+key = "age";
