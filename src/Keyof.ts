@@ -44,3 +44,12 @@ function convertUnits(
 
 console.log(convertUnits(5600, "m"));
 console.log(convertUnits(5600, "cm"));
+
+function get<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+
+const lookofOmoName = get(lookofOmo, "name");
+console.log(lookofOmoName);
+const lookofOmoAge = get(lookofOmo, "age");
+console.log(lookofOmoAge);
