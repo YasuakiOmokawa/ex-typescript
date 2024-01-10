@@ -53,3 +53,5 @@ const lookofOmoName = get(lookofOmo, "name");
 console.log(lookofOmoName);
 const lookofOmoAge = get(lookofOmo, "age");
 console.log(lookofOmoAge);
+
+console.log(get(mmConversionTable, "m")); // 1000
