@@ -71,3 +71,8 @@ numberObj[1] = 39;
 
 type NumberObjKeys = keyof NumberObj;
 console.log(numberObj);
+
+function get2<T, K extends keyof T & string>(obj: T, key: K): T[K] {
+  const keyName: string = key;
+  return obj[key];
+}
