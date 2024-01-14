@@ -55,3 +55,19 @@ const lookofOmoAge = get(lookofOmo, "age");
 console.log(lookofOmoAge);
 
 console.log(get(mmConversionTable, "m")); // 1000
+
+type NumberObj = {
+  0: string;
+  1: number;
+};
+
+const numberObj: NumberObj = {
+  0: "one",
+  "1": 38,
+};
+
+numberObj["0"] = "two";
+numberObj[1] = 39;
+
+type NumberObjKeys = keyof NumberObj;
+console.log(numberObj);
