@@ -13,5 +13,9 @@ function getOneUserName(
   if (user1 !== undefined) {
     return user1.name;
   }
-  return user2.name;
+  return user2!.name;
 }
+
+console.log(getOneUserName({ tag: "human", name: "omo" })); // omo
+console.log(getOneUserName(undefined, { tag: "human", name: "tama" })); // tama
+console.log(getOneUserName(undefined, undefined)); // undefined
