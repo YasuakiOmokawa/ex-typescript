@@ -25,3 +25,13 @@ useToString2({
 });
 
 // useToString2(3.14);
+
+function useNever(value: never) {
+  // never型はどんな型にも代入できる
+  const num: number = value;
+  const str: string = value;
+  console.log(`value is ${value}`);
+}
+
+// useNever({});
+// useNever(3.14);
