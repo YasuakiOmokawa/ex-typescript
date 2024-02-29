@@ -15,3 +15,4 @@ function showNumber(option: Option<number>): void {
 
 showNumber({ type: "some", value: 100 });
 showNumber({ type: "none" });
+console.log("done");
