@@ -13,13 +13,17 @@ function isPropertyAccesible2(
   return value != null;
 }
 
-function isSome(value: unknown): value is Option<number> {
+function isSome2(value: unknown): value is Option<number> {
   if (!isPropertyAccesible2(value)) return false;
   return value.type === "some" && typeof value.value === "number";
 }
 
+function isSome<T>(object: Option<T>): object is { type: "some"; value: T } {
+  return object.type === "some";
+}
+
 function showNumber(option: Option<number>): void {
-  if (option.type === "some") {
+  if (isSome(option)) {
     console.log(option.value);
   }
 }
