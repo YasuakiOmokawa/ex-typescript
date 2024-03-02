@@ -7,6 +7,17 @@ type Option<T> =
       type: "none";
     };
 
+function isPropertyAccesible2(
+  value: unknown
+): value is { [key: string]: unknown } {
+  return value != null;
+}
+
+function isSome(value: unknown): value is Option<number> {
+  if (!isPropertyAccesible2(value)) return false;
+  return value.type === "some" && typeof value.value === "number";
+}
+
 function showNumber(option: Option<number>): void {
   if (option.type === "some") {
     console.log(option.value);
