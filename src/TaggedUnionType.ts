@@ -16,11 +16,12 @@ function doubleOption(obj: Option<number>) {
   return mapOption(obj, (x) => x * 2);
 }
 
-function mapOption<T, U>(obj: Option<T>, f: (x: T) => U): Option<U> {
-  if (isSome(obj)) {
-    return { tag: "some", value: f(obj.value) };
-  } else {
-    return { tag: "none" };
+function mapOption<T, U>(obj: Option<T>, callback: (x: T) => U): Option<U> {
+  switch (obj.tag) {
+    case "some":
+      return { tag: "some", value: callback(obj.value) };
+    case "none":
+      return { tag: "none" };
   }
 }
 
