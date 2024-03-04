@@ -12,6 +12,26 @@ function isSome<T>(object: Option<T>): object is Some<T> {
   return object.tag === "some";
 }
 
+function doubleOption(obj: Option<number>) {
+  return mapOption(obj, (x) => x * 2);
+}
+
+function mapOption<T, U>(obj: Option<T>, f: (x: T) => U): Option<U> {
+  if (isSome(obj)) {
+    return { tag: "some", value: f(obj.value) };
+  } else {
+    return { tag: "none" };
+  }
+}
+
+const four: Option<number> = { tag: "some", value: 4 };
+const nothing: Option<number> = { tag: "none" };
+
+console.log("start doubleOption");
+console.log(doubleOption(four));
+console.log(doubleOption(nothing));
+console.log("done doubleOption");
+
 function isPropertyAccesible2(
   value: unknown
 ): value is { [key: string]: unknown } {
