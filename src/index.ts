@@ -1,4 +1,4 @@
-import { value, increment } from "./counter.js";
+import increment, { value } from "./counter.js";
 const message: string = "Hello World";
 
 console.log(message);
