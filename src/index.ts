@@ -1,4 +1,5 @@
 import increment, { value } from "./counter.js";
+import { Animal, tama } from "./animal.js";
 const message: string = "Hello World";
 
 console.log(message);
@@ -8,3 +9,9 @@ increment();
 console.log(`increment value: ${value}`);
 increment();
 console.log(`increment value: ${value}`);
+
+const dog: Animal = {
+  age: 5,
+  species: "dog",
+};
+console.log(dog, tama);
