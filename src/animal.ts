@@ -1,9 +1,11 @@
-export type Animal = {
+type Animal = {
   age: number;
   species: string;
 };
 
-export const tama: Animal = {
+const tama: Animal = {
   age: 3,
   species: "cat",
 };
+
+export { Animal, tama };
