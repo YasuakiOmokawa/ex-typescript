@@ -1,5 +1,6 @@
 import increment, { value } from "./counter.js";
-import { Animal, tama } from "./animal.js";
+import type { Animal } from "./animal.js";
+import { tama } from "./animal.js";
 const message: string = "Hello World";
 
 console.log(message);
@@ -15,3 +16,7 @@ const dog: Animal = {
   species: "dog",
 };
 console.log(dog, tama);
+
+const myCat: Animal = {
+  ...tama,
+};
