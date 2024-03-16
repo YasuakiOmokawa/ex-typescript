@@ -1,6 +1,5 @@
 import increment, { value } from "./counter.js";
-import type { Animal } from "./animal.js";
-import { tama } from "./animal.js";
+import { tama, type Animal } from "./animal.js";
 const message: string = "Hello World";
 
 console.log(message);
