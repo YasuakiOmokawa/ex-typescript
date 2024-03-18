@@ -19,3 +19,8 @@ console.log(dog, tama);
 const myCat: Animals.Animal = {
   ...Animals.tama,
 };
+
+export const omo: HumanModule = {
+  age: 3,
+  name: "omo",
+};
