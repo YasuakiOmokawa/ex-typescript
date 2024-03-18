@@ -1,5 +1,6 @@
 import increment, { value } from "./counter.js";
 import * as Animals from "./animal.js";
+import type { HumanModule } from "./HumanModule.js";
 const message: string = "Hello World";
 
 console.log(message);
