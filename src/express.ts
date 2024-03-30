@@ -2,7 +2,7 @@ import express from "express";
 
 const app = express();
 
-app.get("/", (request, reply) => {
+app.get("/", (_request, reply) => {
   reply.send("Hello, World!");
 });
 
