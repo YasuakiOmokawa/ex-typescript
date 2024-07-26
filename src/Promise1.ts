@@ -1,13 +1,12 @@
 import { readFile } from "fs/promises";
 
-const p = readFile("foo.txt", "utf-8");
+const p = readFile("foo2.txt", "utf-8");
 
 p.then((result) => {
-  console.log(1);
+  console.log("success!");
+  console.table(result);
 });
-p.then((result) => {
-  console.log(2);
-});
-p.then((result) => {
-  console.log(3);
+p.catch((error) => {
+  console.log("error!");
+  console.table(error);
 });
