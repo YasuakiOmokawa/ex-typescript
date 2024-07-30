@@ -1,9 +1,9 @@
-const p = new Promise<number>((resolve) => {
-  setTimeout(() => {
-    resolve(666);
-  }, 3000);
-});
+const sleep = (duration: number) => {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, duration);
+  });
+};
 
-p.then((num) => {
-  console.log(`result: ${num}`);
+sleep(200).then(() => {
+  console.log(`elapsed 0.2 secs.`);
 });
