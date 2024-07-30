@@ -13,12 +13,12 @@ promisedRl.then((line) => {
     console.log("success read file!");
     console.table(result);
   });
-  promisedRf.catch((error) => {
+  promisedRf.catch((error: unknown) => {
     console.log("error read file!");
     console.table(error);
   });
 });
-promisedRl.catch((error) => {
+promisedRl.catch((error: unknown) => {
   console.log("error read line interface.");
   console.table(error);
 });
