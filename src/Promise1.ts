@@ -9,11 +9,11 @@ const rl = createInterface({
 const promisedRl = rl.question("please input file name: ");
 promisedRl.then((line) => {
   const promisedRf = readFile(line, "utf-8");
-  promisedRf.then((result) => {
+  const fileReading = promisedRf.then((result) => {
     console.log("success read file!");
     console.table(result);
   });
-  promisedRf.catch((error: unknown) => {
+  fileReading.catch((error: unknown) => {
     console.log("error read file!");
     console.table(error);
   });
