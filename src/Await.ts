@@ -11,9 +11,15 @@ async function get3Await() {
   return 3;
 }
 
+async function main() {
+  const num1 = await get3Await();
+  const num2 = await get3Await();
+  const num3 = await get3Await();
+  return num1 + num2 + num3;
+}
+
 console.log("start call get3 await");
-const pAwait = get3Await();
-pAwait.then((num) => {
-  console.log(`num: ${num}`);
+main().then((result) => {
+  console.log(`result: ${result}`);
 });
 console.log("called get3 await");

@@ -1,1 +1,2 @@
-this is bar.txt
+this is foo.txt
+this is foo.txt
