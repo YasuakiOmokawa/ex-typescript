@@ -6,11 +6,10 @@ let data: string = "";
 try {
   data = await Promise.race([
     readFile("uhyo.txt", "utf8"),
-    timer.set(1, "TimeOut!"),
+    timer.set(1000, "TimeOut!"),
   ]);
 } catch (error) {
   console.log("file read error: ", error);
-  data = "";
 } finally {
   timer.clear();
 }
