@@ -1,4 +1,7 @@
 import { readFile } from "fs/promises";
+import Timeout from "await-timeout";
+
+await Timeout.set(100, "Timeout!");
 
 const data = await readFile("uhyo.txt", "utf8");
 
