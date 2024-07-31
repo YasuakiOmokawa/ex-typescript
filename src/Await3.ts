@@ -1,9 +1,19 @@
 import { readFile } from "fs/promises";
 import Timeout from "await-timeout";
 
-await Timeout.set(100, "Timeout!");
-
-const data = await readFile("uhyo.txt", "utf8");
+const timer = new Timeout();
+let data: string = "";
+try {
+  data = await Promise.race([
+    readFile("uhyo.txt", "utf8"),
+    timer.set(1, "TimeOut!"),
+  ]);
+} catch (error) {
+  console.log("file read error: ", error);
+  data = "";
+} finally {
+  timer.clear();
+}
 
 let count = 0;
 let currentIndex = 0;
