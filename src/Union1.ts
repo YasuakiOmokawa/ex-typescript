@@ -21,3 +21,10 @@ const omoSan: ForUnionUser = {
 function getUserNameDaze2(user: ForUnionUser) {
   return user.age;
 }
+
+type MysteryFuncDaze = ((str: string) => string) | ((str: string) => number);
+
+function useMysteryFunc(func: MysteryFuncDaze) {
+  const result = func("hoge");
+  console.log(result);
+}
