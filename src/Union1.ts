@@ -1,23 +1,23 @@
 type ForUnionAnimal = {
   species: string;
+  age: string;
 };
 type ForUnionHuman = {
   name: string;
+  age: number;
 };
 
 type ForUnionUser = ForUnionAnimal | ForUnionHuman;
 
 const tamaSan: ForUnionUser = {
   species: "john doe species",
+  age: "seventeen",
 };
 const omoSan: ForUnionUser = {
   name: "omokawa",
+  age: 1,
 };
 
-const tamaSan2 = {
-  species: "john doe species",
-  specialProp1: "hoge",
-};
-
-const animalSan: ForUnionAnimal = tamaSan2;
-animalSan.species; // enable access so that type-defined.
+function getUserNameDaze2(user: ForUnionUser) {
+  return user.age;
+}
