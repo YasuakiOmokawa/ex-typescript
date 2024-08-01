@@ -14,10 +14,6 @@ const omoSan: ForUnionUser = {
   name: "omokawa",
 };
 
-function getUserNameDaze(user: ForUnionUser): string {
-  return user.name;
-}
-
 const tamaSan2 = {
   species: "john doe species",
   specialProp1: "hoge",
