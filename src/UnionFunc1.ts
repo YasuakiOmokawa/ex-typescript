@@ -41,3 +41,23 @@ function useMaybeCommonHuman(human: Common.Human | undefined) {
 function useCommonTime(getTimeFunc: Common.GetTimeFunc | undefined) {
   const timerStringOrUndefined = getTimeFunc?.().toString();
 }
+
+function getHelloString(): `Hello, ${number}!` {
+  if (Math.random() > 0.3) {
+    return "Hello, 0.3!";
+  } else {
+    return "Hello, 1!";
+  }
+}
+
+function makeKey<T extends string>(userName: T) {
+  return `user:${userName}` as const;
+}
+
+const omoKey: "user:omo" = makeKey("omo");
+
+function fromKey<T extends string>(key: `user:${T}`) {
+  return key.slice(5) as T;
+}
+
+const omos2 = fromKey("user:omo");
