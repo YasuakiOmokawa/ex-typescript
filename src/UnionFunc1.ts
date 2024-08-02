@@ -12,9 +12,10 @@ function getBeingSpecies(animal: Union.Animal) {
   return animal.species;
 }
 
-function getCommonUserName(user: Common.User) {
+function getCommonUserName(user: Common.User): string {
   switch (user.type) {
     case "human":
+    case "robot":
       return user.name;
     case "animal":
       return "NoName";
