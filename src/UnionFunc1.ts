@@ -24,6 +24,11 @@ console.log(value);
 
 const hogeHuman: Common.Human = {
   name: "hogeHuman",
+  age: 45,
+};
+
+const hogeHuman2: Common.Human = {
+  name: "hogeHuman2",
 };
 
 console.log(hogeHuman);
