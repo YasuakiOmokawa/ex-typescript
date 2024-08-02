@@ -68,3 +68,9 @@ function signNumber(type: "plus" | "minus") {
 function useNumber(num: number) {
   return num > 0 ? "plus" : num < 0 ? "minus" : "zero";
 }
+
+const omo1 = "omo";
+const omo2: "omo" = "omo";
+
+let omo3 = omo1;
+let omo4 = omo2;
