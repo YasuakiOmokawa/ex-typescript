@@ -10,11 +10,16 @@ namespace Common {
     species: string;
   };
 
+  export type Robot = {
+    type: "robot";
+    name: string;
+  };
+
   export type GetTimeFunc = () => Date;
 
   export type SignType = "plus" | "minus";
 
-  export type User = Human | Animal;
+  export type User = Human | Animal | Robot;
 }
 
 export { Common };
