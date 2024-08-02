@@ -39,5 +39,5 @@ function useMaybeCommonHuman(human: Common.Human | undefined) {
 }
 
 function useCommonTime(getTimeFunc: Common.GetTimeFunc | undefined) {
-  const timerOrUndefined = getTimeFunc?.();
+  const timerStringOrUndefined = getTimeFunc?.().toString();
 }
