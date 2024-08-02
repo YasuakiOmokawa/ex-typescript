@@ -12,6 +12,14 @@ function getBeingSpecies(animal: Union.Animal) {
   return animal.species;
 }
 
+function getCommonUserName(user: Common.User) {
+  if (user.type === "human") {
+    return user.name;
+  } else {
+    return "NoName";
+  }
+}
+
 const mysteryFuncDesuyo = Math.random() < 0.5 ? getBeingName : getBeingSpecies;
 
 const omoIntersection: Union.Human & Union.Animal = {
@@ -25,16 +33,16 @@ console.log(value);
 const hogeHuman: Common.User = {
   name: "hogeHuman",
   age: 45,
-  tag: "human",
+  type: "human",
 };
 
 const hogeHuman2: Common.User = {
   name: "hogeHuman2",
-  tag: "human",
+  type: "human",
 };
 
 const hogeAnimal: Common.User = {
-  tag: "animal",
+  type: "animal",
   species: "hoge desuyo",
 };
 

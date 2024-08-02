@@ -1,12 +1,12 @@
 namespace Common {
   export type Human = {
-    tag: "human";
+    type: "human";
     name: string;
     age?: number;
   };
 
   export type Animal = {
-    tag: "animal";
+    type: "animal";
     species: string;
   };
 
