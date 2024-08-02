@@ -49,3 +49,9 @@ function getHelloString(): `Hello, ${number}!` {
     return "Hello, 1!";
   }
 }
+
+function makeKey<T extends string>(userName: T) {
+  return `user:${userName}` as const;
+}
+
+const omoKey: "user:omo" = makeKey("omo");
