@@ -87,3 +87,10 @@ const omo2: "omo" = "omo";
 
 let omo3 = omo1;
 let omo4 = omo2;
+
+function formatNumberOrString(value: string | number) {
+  return typeof value === "number" ? value.toFixed(3) : value;
+}
+
+console.log(formatNumberOrString("3.14"));
+console.log(formatNumberOrString("omokawa"));
