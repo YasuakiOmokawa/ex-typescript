@@ -1,3 +1,5 @@
+import { Common } from "./commonTypes.js";
+
 namespace Union {
   export type Human = { name: string };
   export type Animal = { species: string };
@@ -19,3 +21,9 @@ const omoIntersection: Union.Human & Union.Animal = {
 
 const value = mysteryFuncDesuyo(omoIntersection);
 console.log(value);
+
+const hogeHuman: Common.Human = {
+  name: "hogeHuman",
+};
+
+console.log(hogeHuman);
