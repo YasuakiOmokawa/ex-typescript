@@ -41,3 +41,11 @@ function useMaybeCommonHuman(human: Common.Human | undefined) {
 function useCommonTime(getTimeFunc: Common.GetTimeFunc | undefined) {
   const timerStringOrUndefined = getTimeFunc?.().toString();
 }
+
+function getHelloString(): `Hello, ${number}!` {
+  if (Math.random() > 0.3) {
+    return "Hello, 0.3!";
+  } else {
+    return "Hello, 1!";
+  }
+}
