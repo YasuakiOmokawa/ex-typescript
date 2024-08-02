@@ -3,10 +3,14 @@ namespace Common {
     name: string;
     age?: number;
   };
+
   export type Animal = {
     species: string;
   };
+
   export type GetTimeFunc = () => Date;
+
+  export type SignType = "plus" | "minus";
 }
 
 export { Common };
