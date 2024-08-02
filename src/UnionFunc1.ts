@@ -22,13 +22,20 @@ const omoIntersection: Union.Human & Union.Animal = {
 const value = mysteryFuncDesuyo(omoIntersection);
 console.log(value);
 
-const hogeHuman: Common.Human = {
+const hogeHuman: Common.User = {
   name: "hogeHuman",
   age: 45,
+  tag: "human",
 };
 
-const hogeHuman2: Common.Human = {
+const hogeHuman2: Common.User = {
   name: "hogeHuman2",
+  tag: "human",
+};
+
+const hogeAnimal: Common.User = {
+  tag: "animal",
+  species: "hoge desuyo",
 };
 
 console.log(hogeHuman);
