@@ -55,3 +55,9 @@ function makeKey<T extends string>(userName: T) {
 }
 
 const omoKey: "user:omo" = makeKey("omo");
+
+function fromKey<T extends string>(key: `user:${T}`) {
+  return key.slice(5) as T;
+}
+
+const omos2 = fromKey("user:omo");
