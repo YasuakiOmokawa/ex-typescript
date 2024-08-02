@@ -6,6 +6,7 @@ namespace Common {
   export type Animal = {
     species: string;
   };
+  export type GetTimeFunc = () => Date;
 }
 
 export { Common };

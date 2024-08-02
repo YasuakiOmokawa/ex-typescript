@@ -32,3 +32,12 @@ const hogeHuman2: Common.Human = {
 };
 
 console.log(hogeHuman);
+
+function useMaybeCommonHuman(human: Common.Human | undefined) {
+  const age = human?.age;
+  console.log(age);
+}
+
+function useCommonTime(getTimeFunc: Common.GetTimeFunc | undefined) {
+  const timerOrUndefined = getTimeFunc?.();
+}
