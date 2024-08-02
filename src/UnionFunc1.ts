@@ -13,10 +13,11 @@ function getBeingSpecies(animal: Union.Animal) {
 }
 
 function getCommonUserName(user: Common.User) {
-  if (user.type === "human") {
-    return user.name;
-  } else {
-    return "NoName";
+  switch (user.type) {
+    case "human":
+      return user.name;
+    case "animal":
+      return "NoName";
   }
 }
 
@@ -45,6 +46,9 @@ const hogeAnimal: Common.User = {
   type: "animal",
   species: "hoge desuyo",
 };
+
+console.log(getCommonUserName(hogeHuman2));
+console.log(getCommonUserName(hogeAnimal));
 
 console.log(hogeHuman);
 
