@@ -13,7 +13,10 @@
   "devDependencies": {
     "@types/await-timeout": "^0.3.3",
     "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.5.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.4",
     "typescript": "^5.1.6"
   },
   "dependencies": {
