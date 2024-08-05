@@ -1,8 +1,8 @@
-async function fail() {
+async function failManual() {
   throw new Error("this is error message!");
 }
 
-const pFail = fail();
+const pFail = failManual();
 pFail.catch((error) => {
   console.log(error);
   console.log("end fail process");
