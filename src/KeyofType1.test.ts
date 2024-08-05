@@ -9,3 +9,11 @@ test("渡した整数の年齢になること", () => {
   };
   expect(setAge(omosan, 40).age).toBe(40);
 });
+
+test("ageのないデータに数値が渡せること", () => {
+  const omosan: Common.Human = {
+    type: "human",
+    name: "omo",
+  };
+  expect(setAge(omosan, 50).age).toBe(50);
+});
