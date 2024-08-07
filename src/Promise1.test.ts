@@ -2,6 +2,9 @@ import { readFileTest } from "./Promise1";
 import mockStdin from "mock-stdin";
 
 console.log = jest.fn();
+jest.mock("fs/promises", () => ({
+  readFile: jest.fn().mockResolvedValue("ok"),
+}));
 
 describe("ファイル読み取りテスト", () => {
   let stdin: ReturnType<typeof mockStdin.stdin>;
@@ -18,14 +21,18 @@ describe("ファイル読み取りテスト", () => {
 
   describe("存在するファイルを指定した場合", () => {
     const input = "foo.txt\n";
-    // const expectedResult = "hoge";
 
     beforeEach(() => {
       execute(input);
     });
 
     it("ファイルの内容を出力する", () => {
-      expect(console.log).toHaveBeenCalledWith("closes read line interface.");
+      expect(console.log).toHaveBeenNthCalledWith(1, "success read file!");
+      expect(console.log).toHaveBeenNthCalledWith(2, "ok");
+      expect(console.log).toHaveBeenNthCalledWith(
+        3,
+        "closes read line interface."
+      );
     });
   });
 });
