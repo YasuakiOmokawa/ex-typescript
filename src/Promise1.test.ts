@@ -1,6 +1,6 @@
 import { readFileTest } from "./Promise1";
 import mockStdin from "mock-stdin";
-import { readFile } from "fs/promises";
+import { readFileSync } from "fs";
 
 console.log = jest.fn();
 
@@ -29,13 +29,13 @@ describe("ファイル読み取りテスト", () => {
     });
 
     it("ファイルの内容を出力する", async () => {
-      const readData = await readFile("foo.txt", "utf-8");
+      const readData = await readFileSync("foo.txt", "utf-8");
+      expect(console.log).toHaveBeenNthCalledWith(1, "success read file!");
+      expect(console.log).toHaveBeenNthCalledWith(2, readData);
       expect(console.log).toHaveBeenNthCalledWith(
-        1,
+        3,
         "closes read line interface."
       );
-      expect(console.log).toHaveBeenNthCalledWith(2, "success read file!");
-      expect(console.log).toHaveBeenNthCalledWith(3, readData);
     });
   });
 
@@ -48,14 +48,14 @@ describe("ファイル読み取りテスト", () => {
 
     it("ファイル読み取りエラーを出力する", async () => {
       try {
-        await readFile("hoge.txt", "utf-8");
+        await readFileSync("hoge.txt", "utf-8");
       } catch (error) {
+        expect(console.log).toHaveBeenNthCalledWith(1, "error read file!");
+        expect(String(error)).toMatch("ENOENT");
         expect(console.log).toHaveBeenNthCalledWith(
-          1,
+          3,
           "closes read line interface."
         );
-        expect(console.log).toHaveBeenNthCalledWith(2, "error read file!");
-        expect(String(error)).toMatch("ENOENT");
       }
     });
   });

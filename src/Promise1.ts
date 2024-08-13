@@ -1,5 +1,5 @@
 import { createInterface } from "readline/promises";
-import { readFile } from "fs/promises";
+import { readFileSync } from "fs";
 
 export function readFileTest() {
   const rl = createInterface({
@@ -9,15 +9,14 @@ export function readFileTest() {
 
   rl.question("please input file name: ")
     .then((line) => {
-      readFile(line, "utf-8")
-        .then((result) => {
-          console.log("success read file!");
-          console.table(result);
-        })
-        .catch((error: unknown) => {
-          console.log("error read file!");
-          console.table(error);
-        });
+      try {
+        const result = readFileSync(line, "utf-8");
+        console.log("success read file!");
+        console.table(result);
+      } catch (error: unknown) {
+        console.log("error read file!");
+        console.table(error);
+      }
     })
     .catch((error: unknown) => {
       console.log("error read line interface.");
