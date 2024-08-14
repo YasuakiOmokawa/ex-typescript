@@ -17,13 +17,19 @@ function isStringOrNumber(value: unknown): value is string | number {
   return typeof value === "string" || typeof value === "number";
 }
 
-function isCommonAnimal(value: any): value is Common.Animal {
-  if (value == null) return false;
+function isCommonAnimal(value: unknown): value is Common.Animal {
+  if (!isPropertyAccessible(value)) return false;
   return value.type === "animal" && typeof value.species === "string";
 }
 
-function assertCommonAnimal(value: any): asserts value is Common.Animal {
-  if (value == null) {
+function isPropertyAccessible(
+  value: unknown
+): value is { [key: string]: unknown } {
+  return value != null;
+}
+
+function assertCommonAnimal(value: unknown): asserts value is Common.Animal {
+  if (!isPropertyAccessible(value)) {
     throw new Error("Given value is null or undefined");
   }
   if (value.type !== "animal" || typeof value.species !== "string") {
