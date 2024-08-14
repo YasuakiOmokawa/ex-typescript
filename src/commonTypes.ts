@@ -21,7 +21,8 @@ namespace Common {
 
   export type User = Human | Animal | Robot;
 
-  type SuppoyrtDish = "japan_dish" | "french";
+  const dishes = ["japanese", "french"] as const;
+  type SuppoyrtDish = (typeof dishes)[number];
   export type Cutlery = {
     [key in SuppoyrtDish]: string;
   };
