@@ -22,14 +22,22 @@ describe("unknownの型のプロパティアクセスをしたい", () => {
       name: "hugahuga",
     };
 
-    it("動物の条件を満たすunknownではないことを表示する", () => {
+    it("動物の条件を満たさないことを表示する", () => {
       expect(getSpecies(somethingMove2)).toBe("this is incorrect");
     });
 
-    it("[assert ver.] 動物の条件を満たすunknownではないことを表示する", () => {
+    it("[assert ver.] 動物の条件を満たさないことを表示する", () => {
       expect(() => {
         checkAndGetSpecies(somethingMove2);
       }).toThrow("Given value is not a Coomon.Animal");
+    });
+
+    it("[assert ver.] プロパティのないunknownであることを表示する", () => {
+      const somethingMove3: unknown = undefined;
+
+      expect(() => {
+        checkAndGetSpecies(somethingMove3);
+      }).toThrow("Given value is null or undefined");
     });
   });
 });
