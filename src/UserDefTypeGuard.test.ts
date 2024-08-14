@@ -1,14 +1,4 @@
-import exp from "constants";
-import {
-  isStringOrNumber,
-  isCommonAnimal,
-  getSpecies,
-} from "./UserDefTypeGuard";
-
-test("不明な値が数値であることを判定", () => {
-  const maybeNumber: unknown = 123;
-  expect(isStringOrNumber(maybeNumber)).toBe(true);
-});
+import { getSpecies, checkAndGetSpecies } from "./UserDefTypeGuard";
 
 describe("unknownの型のプロパティアクセスをしたい", () => {
   const somethingMove: unknown = {
@@ -16,12 +6,12 @@ describe("unknownの型のプロパティアクセスをしたい", () => {
     species: "cat",
   };
 
-  it("お前はAnimalだ", () => {
-    expect(isCommonAnimal(somethingMove)).toBe(true);
-  });
-
   it("動物の条件を満たすunknownなので種別が取得できる", () => {
     expect(getSpecies(somethingMove)).toBe("cat");
+  });
+
+  it("[assert ver.] 動物の条件を満たすunknownなので種別が取得できる", () => {
+    expect(checkAndGetSpecies(somethingMove)).toBe("cat");
   });
 
   const somethingMove2: unknown = {
@@ -31,5 +21,11 @@ describe("unknownの型のプロパティアクセスをしたい", () => {
 
   it("動物の条件を満たすunknownではないことを表示する", () => {
     expect(getSpecies(somethingMove2)).toBe("this is incorrect");
+  });
+
+  it("[assert ver.] 動物の条件を満たすunknownではないことを表示する", () => {
+    expect(() => {
+      checkAndGetSpecies(somethingMove2);
+    }).toThrow("Given value is not a Coomon.Animal");
   });
 });
