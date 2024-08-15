@@ -6,3 +6,12 @@ export function argChecker<M extends "string" | "number">(
 ) {
   return `${mode}: ${args}`;
 }
+
+const kimbley: Common.Freeze<Common.NestedPerson> = {
+  type: "nested_person",
+  name: "hoge",
+  address: {
+    country: "Japan",
+    city: "Tokyo",
+  },
+};

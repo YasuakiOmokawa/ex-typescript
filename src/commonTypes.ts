@@ -32,6 +32,19 @@ namespace Common {
   export type RestArgs<M> = M extends "string"
     ? [string, string]
     : [number, number, number];
+
+  export type Freeze<T> = Readonly<{
+    [P in keyof T]: T[P] extends object ? Freeze<T[P]> : T[P];
+  }>;
+
+  export type NestedPerson = {
+    type: "nested_person";
+    name: string;
+    address: {
+      country: string;
+      city: string;
+    };
+  };
 }
 
 export { Common };
