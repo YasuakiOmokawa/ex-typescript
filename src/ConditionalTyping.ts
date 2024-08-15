@@ -15,3 +15,5 @@ const kimbley: Common.Freeze<Common.NestedPerson> = {
     city: "Tokyo",
   },
 };
+
+export const isPrimitive = (value: unknown): boolean => Object(value) !== value;
