@@ -1,4 +1,4 @@
-import { readFileTest } from "./Promise1";
+import { readFileTest } from "../src/Promise1";
 import mockStdin from "mock-stdin";
 import fs from "fs";
 
