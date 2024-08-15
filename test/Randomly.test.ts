@@ -1,4 +1,4 @@
-import { getRandomData } from "./Randomly";
+import { getRandomData } from "../src/Randomly";
 
 test("与えられたデータのうち、ランダムで値を返却する", () => {
   const result = getRandomData(1, 2);

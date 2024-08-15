@@ -1,5 +1,5 @@
-import { Common } from "./commonTypes";
-import { setAge } from "./KeyofType1";
+import { Common } from "../src/commonTypes";
+import { setAge } from "../src/KeyofType1";
 
 test("渡した整数の年齢になること", () => {
   const omosan: Common.Human = {

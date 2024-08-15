@@ -1,4 +1,4 @@
-import { getSpecies, checkAndGetSpecies } from "./UserDefTypeGuard";
+import { getSpecies, checkAndGetSpecies } from "../src/UserDefTypeGuard";
 
 describe("unknownの型のプロパティアクセスをしたい", () => {
   describe("アクセスできる場合", () => {

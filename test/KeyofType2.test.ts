@@ -1,4 +1,4 @@
-import { convertUnits } from "./KeyofType2";
+import { convertUnits } from "../src/KeyofType2";
 
 test("対象のユニットの割合に変換されること", () => {
   expect(convertUnits(5600, "m")).toMatchObject({

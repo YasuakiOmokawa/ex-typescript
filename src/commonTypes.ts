@@ -28,6 +28,10 @@ namespace Common {
   };
 
   export type KeyValuesAndName = { [K: string]: string } & { name: string };
+
+  export type RestArgs<M> = M extends "string"
+    ? [string, string]
+    : [number, number, number];
 }
 
 export { Common };
