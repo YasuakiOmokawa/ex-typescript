@@ -17,3 +17,9 @@ const kimbley: Common.Freeze<Common.NestedPerson> = {
 };
 
 export const isPrimitive = (value: unknown): boolean => Object(value) !== value;
+
+export function getNumberIfExists(
+  object: Common.Option<number>
+): number | undefined {
+  if (object.type === "some") return object.value;
+}
