@@ -44,13 +44,14 @@ function mapOption<T, U>(
   object: Common.Option<T>,
   callback: (param: T) => U
 ): Common.Option<U> {
-  if (object.type === "some") {
-    return {
-      type: "some",
-      value: callback(object.value),
-    };
-  } else {
-    return object;
+  switch (object.type) {
+    case "some":
+      return {
+        type: "some",
+        value: callback(object.value),
+      };
+    case "none":
+      return object;
   }
 }
 
