@@ -46,14 +46,14 @@ namespace Common {
     };
   };
 
-  export type Option<T> =
-    | {
-        type: "some";
-        value: T;
-      }
-    | {
-        type: "none";
-      };
+  export type Some<T> = {
+    type: "some";
+    value: T;
+  };
+  export type None = {
+    type: "none";
+  };
+  export type Option<T> = Some<T> | None;
 }
 
 export { Common };

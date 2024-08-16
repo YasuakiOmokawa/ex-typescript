@@ -22,9 +22,7 @@ export function getNumberIfExists<T>(object: Common.Option<T>): T | undefined {
   if (isSome(object)) return object.value;
 }
 
-function isSome<T>(
-  object: Common.Option<T>
-): object is { type: "some"; value: T } {
+function isSome<T>(object: Common.Option<T>): object is Common.Some<T> {
   return object.type === "some";
 }
 
@@ -36,7 +34,7 @@ export function getNumberIfExists2<T>(object: Common.Option<T>): T {
 
 function assertSome<T>(
   object: Common.Option<T>
-): asserts object is { type: "some"; value: T } {
+): asserts object is Common.Some<T> {
   if (object.type !== "some") {
     throw new Error("Given Type has nothing value");
   }
