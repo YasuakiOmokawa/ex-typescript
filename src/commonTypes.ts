@@ -1,3 +1,5 @@
+import { ResolveFastifyReplyReturnType } from "fastify/types/type-provider";
+
 namespace Common {
   export type Human = {
     type: "human";
@@ -54,6 +56,19 @@ namespace Common {
     type: "none";
   };
   export type Option<T> = Some<T> | None;
+
+  export type Inprogress = {
+    done: boolean;
+    progress: number;
+  };
+  export type Success = {
+    done: boolean;
+  };
+  export type Failure = {
+    done: boolean;
+    error: Error;
+  };
+  export type UploadStatus = Inprogress | Success | Failure;
 }
 
 export { Common };
