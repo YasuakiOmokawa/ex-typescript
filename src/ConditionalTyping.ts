@@ -21,5 +21,11 @@ export const isPrimitive = (value: unknown): boolean => Object(value) !== value;
 export function getNumberIfExists(
   object: Common.Option<number>
 ): number | undefined {
-  if (object.type === "some") return object.value;
+  if (isSome(object)) return object.value;
+}
+
+function isSome(
+  object: Common.Option<number>
+): object is { type: "some"; value: number } {
+  return object.type === "some";
 }
