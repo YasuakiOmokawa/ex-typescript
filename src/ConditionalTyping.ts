@@ -18,27 +18,25 @@ const kimbley: Common.Freeze<Common.NestedPerson> = {
 
 export const isPrimitive = (value: unknown): boolean => Object(value) !== value;
 
-export function getNumberIfExists(
-  object: Common.Option<number>
-): number | undefined {
+export function getNumberIfExists<T>(object: Common.Option<T>): T | undefined {
   if (isSome(object)) return object.value;
 }
 
-function isSome(
-  object: Common.Option<number>
-): object is { type: "some"; value: number } {
+function isSome<T>(
+  object: Common.Option<T>
+): object is { type: "some"; value: T } {
   return object.type === "some";
 }
 
-export function getNumberIfExists2(object: Common.Option<number>): number {
+export function getNumberIfExists2<T>(object: Common.Option<T>): T {
   assertSome(object);
 
   return object.value;
 }
 
-function assertSome(
-  object: Common.Option<number>
-): asserts object is { type: "some"; value: number } {
+function assertSome<T>(
+  object: Common.Option<T>
+): asserts object is { type: "some"; value: T } {
   if (object.type !== "some") {
     throw new Error("Given Type has nothing value");
   }
