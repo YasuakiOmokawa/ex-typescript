@@ -1,9 +1,11 @@
+import { fileURLToPath } from "url";
 import { Common } from "../src/commonTypes";
 import {
   argChecker,
   isPrimitive,
   getNumberIfExists,
   getNumberIfExists2,
+  doubleOption,
 } from "../src/ConditionalTyping";
 
 test("stringモードの呼び出し検査", () => {
@@ -52,6 +54,23 @@ describe("getNumberIfExists()", () => {
       expect(() => {
         getNumberIfExists2(nothing);
       }).toThrow(/has nothing value/);
+    });
+  });
+
+  describe("doubleOption()", () => {
+    test("データがあるならコールバック適用", () => {
+      const five: Common.Option<number> = {
+        type: "some",
+        value: 5,
+      };
+      expect(doubleOption(five)).toMatchObject({ type: "some", value: 10 });
+    });
+
+    test("データがないならコールバック適用", () => {
+      const nothing: Common.Option<number> = {
+        type: "none",
+      };
+      expect(doubleOption(nothing)).toMatchObject(nothing);
     });
   });
 });

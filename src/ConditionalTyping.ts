@@ -39,3 +39,21 @@ function assertSome<T>(
     throw new Error("Given Type has nothing value");
   }
 }
+
+function mapOption<T, U>(
+  object: Common.Option<T>,
+  callback: (param: T) => U
+): Common.Option<U> {
+  if (object.type === "some") {
+    return {
+      type: "some",
+      value: callback(object.value),
+    };
+  } else {
+    return object;
+  }
+}
+
+export function doubleOption(obj: Common.Option<number>) {
+  return mapOption(obj, (x) => x * 2);
+}
