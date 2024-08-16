@@ -1,5 +1,12 @@
-import exp from "constants";
-import { argChecker, isPrimitive } from "../src/ConditionalTyping";
+import { fileURLToPath } from "url";
+import { Common } from "../src/commonTypes";
+import {
+  argChecker,
+  isPrimitive,
+  getNumberIfExists,
+  getNumberIfExists2,
+  doubleOption,
+} from "../src/ConditionalTyping";
 
 test("stringモードの呼び出し検査", () => {
   expect(argChecker("string", "hoge", "fuga")).toBe("string: hoge,fuga");
@@ -16,4 +23,54 @@ test("プロパティのないデータはtrue", () => {
 
 test("プロパティのあるデータはfalse", () => {
   expect(isPrimitive({ hoge: "fuga" })).toBeFalsy;
+});
+
+describe("getNumberIfExists()", () => {
+  describe("データ存在のケース", () => {
+    const four: Common.Option<number> = {
+      type: "some",
+      value: 4,
+    };
+
+    it("返却", () => {
+      expect(getNumberIfExists(four)).toBe(4);
+    });
+
+    it("[assert] 返却", () => {
+      expect(getNumberIfExists2(four)).toBe(4);
+    });
+  });
+
+  describe("データがないケース", () => {
+    const nothing: Common.Option<number> = {
+      type: "none",
+    };
+
+    it("返却しない", () => {
+      expect(getNumberIfExists(nothing)).toBe(undefined);
+    });
+
+    it("[assert] 例外をスローする", () => {
+      expect(() => {
+        getNumberIfExists2(nothing);
+      }).toThrow(/has nothing value/);
+    });
+  });
+
+  describe("doubleOption()", () => {
+    test("データがあるならコールバック適用", () => {
+      const five: Common.Option<number> = {
+        type: "some",
+        value: 5,
+      };
+      expect(doubleOption(five)).toMatchObject({ type: "some", value: 10 });
+    });
+
+    test("データがないならコールバック適用", () => {
+      const nothing: Common.Option<number> = {
+        type: "none",
+      };
+      expect(doubleOption(nothing)).toMatchObject(nothing);
+    });
+  });
 });

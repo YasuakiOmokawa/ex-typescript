@@ -45,6 +45,15 @@ namespace Common {
       city: string;
     };
   };
+
+  export type Some<T> = {
+    type: "some";
+    value: T;
+  };
+  export type None = {
+    type: "none";
+  };
+  export type Option<T> = Some<T> | None;
 }
 
 export { Common };
