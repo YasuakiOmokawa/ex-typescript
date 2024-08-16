@@ -3,6 +3,7 @@ import {
   argChecker,
   isPrimitive,
   getNumberIfExists,
+  getNumberIfExists2,
 } from "../src/ConditionalTyping";
 
 test("stringモードの呼び出し検査", () => {
@@ -23,20 +24,34 @@ test("プロパティのあるデータはfalse", () => {
 });
 
 describe("getNumberIfExists()", () => {
-  it("データが存在すれば返却", () => {
+  describe("データ存在のケース", () => {
     const four: Common.Option<number> = {
       type: "some",
       value: 4,
     };
 
-    expect(getNumberIfExists(four)).toBe(4);
+    it("返却", () => {
+      expect(getNumberIfExists(four)).toBe(4);
+    });
+
+    it("[assert] 返却", () => {
+      expect(getNumberIfExists2(four)).toBe(4);
+    });
   });
 
-  it("データがないので返却しない", () => {
+  describe("データがないケース", () => {
     const nothing: Common.Option<number> = {
       type: "none",
     };
 
-    expect(getNumberIfExists(nothing)).toBe(undefined);
+    it("返却しない", () => {
+      expect(getNumberIfExists(nothing)).toBe(undefined);
+    });
+
+    it("[assert] 例外をスローする", () => {
+      expect(() => {
+        getNumberIfExists2(nothing);
+      }).toThrow(/has nothing value/);
+    });
   });
 });

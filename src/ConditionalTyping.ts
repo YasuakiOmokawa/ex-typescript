@@ -29,3 +29,17 @@ function isSome(
 ): object is { type: "some"; value: number } {
   return object.type === "some";
 }
+
+export function getNumberIfExists2(object: Common.Option<number>): number {
+  assertSome(object);
+
+  return object.value;
+}
+
+function assertSome(
+  object: Common.Option<number>
+): asserts object is { type: "some"; value: number } {
+  if (object.type !== "some") {
+    throw new Error("Given Type has nothing value");
+  }
+}
