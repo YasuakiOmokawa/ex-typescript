@@ -57,18 +57,18 @@ namespace Common {
   };
   export type Option<T> = Some<T> | None;
 
-  export type Inprogress = {
-    done: boolean;
+  export type InProgress = {
+    type: "InProgress";
     progress: number;
   };
   export type Success = {
-    done: boolean;
+    type: "Success";
   };
   export type Failure = {
-    done: boolean;
+    type: "Failure";
     error: Error;
   };
-  export type UploadStatus = Inprogress | Success | Failure;
+  export type UploadStatus = InProgress | Success | Failure;
 }
 
 export { Common };

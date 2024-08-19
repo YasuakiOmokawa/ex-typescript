@@ -1,13 +1,14 @@
 import { Common } from "./commonTypes";
 
 export function getStatus(status: Common.UploadStatus) {
-  if (status.done) {
-    if ("error" in status) {
+  switch (status.type) {
+    case "Failure":
       return `upload failed: ${status.error.message}`;
-    } else {
+    case "Success":
       return `upload success`;
-    }
-  } else if ("progress" in status) {
-    return `now uploading: ${status.progress}%`;
+    case "InProgress":
+      return `now uploading: ${status.progress}%`;
+    default:
+      return `unknown status: ${status}`;
   }
 }

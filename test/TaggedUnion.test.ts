@@ -4,7 +4,7 @@ import { Common } from "../src/commonTypes";
 describe("getStatus()", () => {
   it("success", () => {
     const success: Common.Success = {
-      done: true,
+      type: "Success",
     };
 
     expect(getStatus(success)).toBe("upload success");
@@ -12,7 +12,7 @@ describe("getStatus()", () => {
 
   it("failure", () => {
     const failure: Common.Failure = {
-      done: true,
+      type: "Failure",
       error: Error("this is error"),
     };
 
@@ -20,8 +20,8 @@ describe("getStatus()", () => {
   });
 
   it("inprogress", () => {
-    const inprogress: Common.Inprogress = {
-      done: false,
+    const inprogress: Common.InProgress = {
+      type: "InProgress",
       progress: 55,
     };
 
