@@ -1,4 +1,3 @@
-import { fileURLToPath } from "url";
 import { Common } from "../src/commonTypes";
 import {
   argChecker,
@@ -6,6 +5,7 @@ import {
   getNumberIfExists,
   getNumberIfExists2,
   doubleOption,
+  getFeaturedUseName,
 } from "../src/ConditionalTyping";
 
 test("stringモードの呼び出し検査", () => {
@@ -72,5 +72,23 @@ describe("getNumberIfExists()", () => {
       };
       expect(doubleOption(nothing)).toMatchObject(nothing);
     });
+  });
+});
+
+describe("getFeaturedUserName()", () => {
+  it("enable feature", () => {
+    const user: Common.FeaturedUser2 = {
+      enableFeature: true,
+      newName: "john",
+    };
+    expect(getFeaturedUseName(user)).toBe("john");
+  });
+
+  it("disable feature", () => {
+    const user: Common.FeaturedUser2 = {
+      enableFeature: false,
+      oldName: "john",
+    };
+    expect(getFeaturedUseName(user)).toBe("john");
   });
 });
