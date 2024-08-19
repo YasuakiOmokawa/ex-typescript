@@ -1,3 +1,4 @@
+import { resolveTxt } from "dns/promises";
 import { Common } from "./commonTypes";
 
 export function argChecker<M extends "string" | "number">(
@@ -57,4 +58,13 @@ function mapOption<T, U>(
 
 export function doubleOption(obj: Common.Option<number>) {
   return mapOption(obj, (x) => x * 2);
+}
+
+export function getFeaturedUseName(user: Common.FeaturedUser2) {
+  switch (user.enableFeature) {
+    case true:
+      return user.newName;
+    case false:
+      return user.oldName;
+  }
 }

@@ -69,6 +69,20 @@ namespace Common {
     error: Error;
   };
   export type UploadStatus = InProgress | Success | Failure;
+
+  const enableFeature1 = false;
+  type OldUser = {
+    enableFeature: false;
+    oldName: string;
+  };
+  type NewUser = {
+    enableFeature: true;
+    newName: string;
+  };
+  export type FeaturedUser = typeof enableFeature1 extends true
+    ? NewUser
+    : OldUser;
+  export type FeaturedUser2 = OldUser | NewUser;
 }
 
 export { Common };
