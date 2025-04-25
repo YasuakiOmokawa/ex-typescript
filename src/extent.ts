@@ -1,15 +1,15 @@
 function extent(nums: Iterable<number>) {
-  let min, max;
+  let minMax: [number, number] | null = null;
+  let oldMin: number, oldMax: number;
   for (const num of nums) {
-    if (!min) {
-      min = num;
-      max = num;
+    if (!minMax) {
+      minMax = [num, num];
     } else {
-      min = Math.min(min, num);
-      max = Math.max(max, num);
+      [oldMin, oldMax] = minMax;
+      minMax = [Math.min(num, oldMin), Math.max(num, oldMax)];
     }
   }
-  return [min, max];
+  return minMax;
 }
 
-const [min, max] = extent([0, 1, 2]);
+console.log(extent([0, 1, 2]));
